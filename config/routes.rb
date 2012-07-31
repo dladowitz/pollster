@@ -2,7 +2,7 @@ Pollster::Application.routes.draw do
   root :to => "polls#index"
    
   resources :polls
-  # match '/:survey_path' => 'polls#show'
+  resources :questions
   
   # get "polls/index"
   # 
