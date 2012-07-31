@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  edit_link: MyString
+  survey: MyString
+
+two:
+  edit_link: MyString
+  survey: MyString

@@ -1,0 +1,9 @@
+<h1>Polls#index</h1>
+<p>Find me in app/views/polls/index.html.erb</p>
+<% @poll.each do |poll| %>
+	<%= poll.name %>::::<%= poll.survey_path%>::::<%=poll.edit_path%> <br />
+<% end %>
+<br />
+<br />
+
+<%= link_to 'Create a new Poll', new_poll_path%>
