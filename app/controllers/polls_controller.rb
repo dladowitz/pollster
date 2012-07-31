@@ -17,7 +17,7 @@ class PollsController < ApplicationController
       @poll.edit_path = rand_num
     end
     
-    temp_survey_path =  @poll.name[0..5].gsub(' ','')
+    temp_survey_path =  @poll.name[0..5].downcase.gsub(' ','')
     if Poll.find_by_survey_path(temp_survey_path)
       @poll.survey_path = temp_survey_path + rand(99).to_s
     else
