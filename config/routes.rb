@@ -1,14 +1,15 @@
 Pollster::Application.routes.draw do
   
   resources :polls
+  # match '/:survey_path' => 'polls#show'
   
-  get "polls/index"
-
-  get "polls/show"
-
-  get "polls/create"
-
-  get "polls/new"
+  # get "polls/index"
+  # 
+  # get "polls/show"
+  # 
+  # get "polls/create"
+  # 
+  # get "polls/new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
