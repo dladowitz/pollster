@@ -1,6 +1,6 @@
 class PollsController < ApplicationController
   def index
-    @poll = Poll.all
+    @polls = Poll.all
   end
   
   def new
@@ -42,7 +42,13 @@ class PollsController < ApplicationController
     @poll.update_attributes(params[:poll])
     # @poll.save(params[:poll])
     redirect_to(polls_path)
-    
+  end
+  
+  def destroy
+    @poll = Poll.find(params[:id])
+    @poll.delete
+    @poll.save
+    redirect_to(polls_path)
   end
   
   

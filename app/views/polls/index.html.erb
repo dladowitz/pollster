@@ -1,9 +1,40 @@
-<h1>Polls</h1>
+<%- model_class = Poll -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:edit_path) %></th>
+      <th><%= model_class.human_attribute_name(:survey_path) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @polls.each do |poll| %>
+      <tr>
+        <td><%= poll.id %></td>
+        <td><%= poll.name %></td>
+        <td><%= link_to poll.edit_path, "polls/#{poll.edit_path}/edit" %></td>
+        <td><%= link_to poll.survey_path, "polls/#{poll.survey_path}" %></td>
+        <td><%=l poll.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      "polls/#{poll.edit_path}/edit", :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      poll_path(poll),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<% @poll.each do |poll| %>
-	<%= poll.name %>::::<%= link_to "View Poll", "polls/#{poll.survey_path}" %>::::<%= link_to 'Edit Poll', "polls/#{poll.edit_path}/edit" %> <br />
-<% end %>
-<br />
-<br />
-
-<%= link_to 'Create a new Poll', new_poll_path%>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_poll_path,
+            :class => 'btn btn-primary' %>
