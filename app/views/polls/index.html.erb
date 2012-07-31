@@ -1,5 +1,5 @@
-<h1>Polls#index</h1>
-<p>Find me in app/views/polls/index.html.erb</p>
+<h1>Polls</h1>
+
 <% @poll.each do |poll| %>
 	<%= poll.name %>::::<%= link_to "View Poll", "polls/#{poll.survey_path}" %>::::<%= link_to 'Edit Poll', "polls/#{poll.edit_path}/edit" %> <br />
 <% end %>

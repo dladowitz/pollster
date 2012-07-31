@@ -7,8 +7,41 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="navbar navbar-fixed-top">
+	  <div class="navbar-inner">
+	    <div class="container">
 
-<%= yield %>
+	      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+	      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </a>
+
+	      <!-- Be sure to leave the brand out there if you want it shown -->
+	      <a class="brand" href="../">Ask People Crap</a>
+
+	      <!-- Everything you want hidden at 940px or less, place within here -->
+	      <div class="nav-collapse">
+	        <ul class="nav">
+					<li><%= link_to "Polls", polls_path %>
+					<li><%= link_to "Create a Poll", new_poll_path %>
+	      </div>
+
+	    </div>
+	  </div>
+	</div>
+	
+	
+<div class="container">
+	<div class="row">
+		<div class="span8"><%= yield %></div>
+		<div class="span8"></div>
+			<h2>About Us</h2>
+			We are here so you can ask people crap. Seems pretty simple. 
+	</div>
+
+</div>
 
 </body>
 </html>
