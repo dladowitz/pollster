@@ -1,4 +1,16 @@
 Pollster::Application.routes.draw do
+  get "questions/index"
+
+  get "questions/new"
+
+  get "questions/show"
+
+  get "questions/edit"
+
+  get "questions/update"
+
+  get "questions/destroy"
+
   root :to => "polls#index"
    
   resources :polls

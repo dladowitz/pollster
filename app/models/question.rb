@@ -1,3 +1,3 @@
 class Question < ActiveRecord::Base
-  attr_accessible :answer, :query
+  attr_accessible :body, :poll_id
 end
